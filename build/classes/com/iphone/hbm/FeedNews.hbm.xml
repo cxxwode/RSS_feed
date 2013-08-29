@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.iphone.model.FeedNews" table="FeedNews">
+		<id name="Id" column="Id" type="int">
+			<generator class="native" />
+		</id>
+		<property name="feedId" column="feedId" type="int" />
+		<property name="newsTitle" column="newsTitle" type="java.lang.String"
+			length="1024" />
+		<property name="newsUrl" column="newsUrl" type="java.lang.String"
+			length="1024" />
+		<property name="newsAuthor" column="newAuthor" type="java.lang.String" 
+			length="18" />
+		<property name="newsPublishedDate" column="newsPublishedDate" type="java.util.Date"/>
+		<property name="readOrNot" column="readOrNot" type="java.lang.String" 
+			length="4" />
+		<property name="favorite" column="favorite" type="int" />
+			
+	</class>
+</hibernate-mapping> 
+ 

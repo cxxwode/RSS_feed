@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.iphone.model.RssFeed" table="RssFeed">
+		<id name="Id" column="Id" type="int">
+			<generator class="native" />
+		</id>
+		<property name="feedName" column="feedName" type="java.lang.String"
+			length="15" />
+		<property name="feedUrl" column="feedUrl" type="java.lang.String" 
+			length="128" />
+	</class>
+</hibernate-mapping> 
+ 

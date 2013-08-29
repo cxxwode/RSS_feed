@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JDBC"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Junit"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Log4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="F:/java包/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struct/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struct/commons-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struct/freemarker-2.3.19.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struct/ognl-3.0.5.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struct/struts2-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struct/xwork-core-2.3.4.1.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struts-2.3.4.1-all/struts-2.3.4.1/lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struts-2.3.4.1-all/struts-2.3.4.1/lib/struts-core-1.3.10.jar"/>
+	<classpathentry kind="lib" path="F:/java包/struts-2.3.4.1-all/struts-2.3.4.1/lib/struts2-spring-plugin-2.3.4.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

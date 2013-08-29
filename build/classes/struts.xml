@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.excludePattern" value="/dwr/*" />
+    <package name="user" extends="struts-default">
+        <action name="UserAction" class="com.iphone.action.UserAction">
+            <result name="success">/left.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+    </package>
+</struts>

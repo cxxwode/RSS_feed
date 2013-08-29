@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <style>
+           body {
+	font: 12px verdana;
+}
+a.mune {
+	float: left;
+	width: 50px;
+	line - height: 20px;
+	text - align: center;
+	background: #0099cc;
+	color: #00ccff;
+}
+a.munechecked {
+	float: left;
+	width: 80px;
+	line - height: 20px;
+	text - align: center;
+	background: #00ccff;
+	color: #0099cc;
+}
+div.panelhide {
+	display: none;
+}
+div.panelblock {
+	display: block;
+	width: 400px;
+	height: 300px;
+	background - color: #99ccff;
+	border: #00ccff 1px solid;
+	padding: 5px;
+	color: #003399
+}
+
+        </style>
+        <script>
+            function changePanel(index) {
+                for (var i = 1; i <= 5; i++) {
+                    if (i == index) {
+                        document.getElementById("mune" + i).className = "munechecked";
+                        document.getElementById("panel" + i).className = "panelblock";
+                    } else {
+                        document.getElementById("mune" + i).className = "mune";
+                        document.getElementById("panel" + i).className = "panelhide";
+                    }
+                }
+            }
+        </script>
+    </head>
+    
+    <body>
+        <a class="munechecked" id="mune1" href="javascript: changePanel(1)">
+            1
+        </a>
+        <a class="mune" id="mune2" href="javascript: changePanel(2)">
+            2
+        </a>
+        <a class="mune" id="mune3" href="javascript: changePanel(3)">
+            3
+        </a>
+        <a class="mune" id="mune4" href="javascript: changePanel(4)">
+            4
+        </a>
+        <a class="mune" id="mune5" href="javascript: changePanel(5)">
+            5
+        </a>
+        <div style="clear: both; line-height: 0px; height: 0px;">
+        </div>
+        <div class="panelblock" id="panel1">
+            panel1
+        </div>
+        <div class="panelhide" id="panel2">
+            panel2
+        </div>
+        <div class="panelhide" id="panel3">
+            panel3
+        </div>
+        <div class="panelhide" id="panel4">
+            panel4
+        </div>
+        <div class="panelhide" id="panel5">
+            panel5
+        </div>
+    </body>
+
+</html>

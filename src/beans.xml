@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- beans 是Spring 配置文件的根元素，并且指定了Schema 信息-->
+<beans 	xmlns="http://www.springframework.org/schema/beans"  
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:context="http://www.springframework.org/schema/context"  
+ xmlns:p="http://www.springframework.org/schema/p" 
+ xmlns:tx="http://www.springframework.org/schema/tx"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+ xsi:schemaLocation="   
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd   
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
+   http://www.springframework.org/schema/tx 
+   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+>
+<context:annotation-config></context:annotation-config>
+
+	<!-- 定义数据源Bean-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 指定连接数据库的驱动-->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<!-- 指定连接数据库的URL -->
+		<property name="url" value="jdbc:mysql:///rss"/>
+		<!-- 指定连接数据库的用户名-->
+		<property name="username" value="root"/>
+		<!-- 指定连接数据库的密码-->
+		<property name="password" value="lufeng"/>
+	</bean>
+	
+	<!-- 定义Hibernate 的SessionFactory Bean -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 依赖注入数据源，注入的正是上文中定义的dataSource -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- mappingResources 属性用来列出全部映射文件-->
+		<property name="mappingResources">
+			<list>
+			<!-- 以下用来列出所有的PO 映射文件-->
+				<value>com/iphone/hbm/RssFeed.hbm.xml</value>
+				<value>com/iphone/hbm/FeedNews.hbm.xml</value>
+			</list>
+		</property>
+		<!-- 定义Hibernate 的SessionFactory 属性-->
+		<property name="hibernateProperties">
+			<props>
+			<!-- 指定Hibernate 的连接方言-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- 指定启动应用时，是否根据Hibernate 映射文件创建数据表-->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		
+	</bean> 
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>
+	
+	<bean id="txManager"  class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="rssFeedDAO" class="com.iphone.rssfeed.DaoImpl.RssFeedDaoImpl">
+  		<property name="hibernateTemplate" ref="hibernateTemplate"></property> 
+	</bean>
+	
+	<bean id="feedNewsDAO" class="com.iphone.rssfeed.DaoImpl.FeedNewsDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property> 
+	</bean>
+	
+	<bean id="rssFeedService" class="com.iphone.rssfeed.manager.RssFeedService" >
+		<property name="rssFeedDaoImpl" ref="rssFeedDAO"></property>
+	</bean>
+	<bean id="feedNewsService" class="com.iphone.rssfeed.manager.FeedNewsService" >
+		<property name="feedNewsDaoImpl" ref="feedNewsDAO"></property>
+	</bean>
+	
+	
+</beans>
